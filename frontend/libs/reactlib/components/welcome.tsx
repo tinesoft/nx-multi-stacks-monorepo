@@ -4,9 +4,11 @@ import styles from './welcome.module.scss';
 export interface WelcomeProps {}
 
 export function Welcome(props: WelcomeProps) {
+  const today = new Date().toDateString();
   return (
-    <div className={styles['container']}>
-      <h1>Welcome to Welcome!</h1>
+    <div className={styles['welcome']}>
+      <h1>Welcome again, from <strong>reactlib!</strong></h1>
+      <p>Today is: <strong>{today}</strong></p>
     </div>
   );
 }

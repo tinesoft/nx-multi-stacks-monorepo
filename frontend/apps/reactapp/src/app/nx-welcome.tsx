@@ -1,10 +1,5 @@
-/*
- * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- This is a starter component and can be deleted.
- * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- Delete this file and get started with your project!
- * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- */
+import { Welcome } from "@multi-stack-monorepo/reactlib";
+
 export function NxWelcome({ title }: { title: string }) {
   return (
     <>
@@ -422,7 +417,7 @@ export function NxWelcome({ title }: { title: string }) {
               Welcome {title} 👋
             </h1>
           </div>
-
+          <Welcome/>
           <div id="hero" className="rounded">
             <div className="text-container">
               <h2>
