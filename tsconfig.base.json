@@ -14,7 +14,9 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@multi-stack-monorepo/nglib": ["frontend/libs/nglib/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
