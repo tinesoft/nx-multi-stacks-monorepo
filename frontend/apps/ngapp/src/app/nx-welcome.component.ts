@@ -1,10 +1,11 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { WelcomeComponent } from '@multi-stack-monorepo/nglib';
 
 @Component({
   selector: 'ngapp-nx-welcome',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, WelcomeComponent],
   template: `
     <!--
      * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -425,6 +426,7 @@ import { CommonModule } from '@angular/common';
             <span> Hello there, </span>
             Welcome ngapp 👋
           </h1>
+          <nglib-welcome></nglib-welcome>
         </div>
         <!--  HERO  -->
         <div id="hero" class="rounded">

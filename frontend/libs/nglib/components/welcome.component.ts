@@ -9,4 +9,6 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./welcome.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class WelcomeComponent {}
+export class WelcomeComponent {
+  today = new Date();
+}
