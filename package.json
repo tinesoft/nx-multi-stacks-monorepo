@@ -4,10 +4,12 @@
   "license": "MIT",
   "scripts": {},
   "private": true,
-  "dependencies": {},
   "devDependencies": {
+    "@nx/angular": "^17.0.0",
     "@nx/js": "17.0.0",
+    "@nx/react": "^17.0.0",
     "@nx/workspace": "17.0.0",
+    "@nxrocks/nx-spring-boot": "^9.1.2",
     "nx": "17.0.0"
   }
 }
