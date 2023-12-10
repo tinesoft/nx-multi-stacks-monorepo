@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@multi-stack-monorepo/nglib": ["frontend/libs/nglib/src/index.ts"]
+      "@multi-stack-monorepo/nglib": ["frontend/libs/nglib/src/index.ts"],
+      "@multi-stack-monorepo/reactlib": ["frontend/libs/reactlib/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
