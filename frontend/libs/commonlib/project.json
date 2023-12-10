@@ -1,0 +1,43 @@
+{
+  "name": "commonlib",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "frontend/libs/commonlib/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/frontend/libs/commonlib",
+        "main": "frontend/libs/commonlib/src/index.ts",
+        "tsConfig": "frontend/libs/commonlib/tsconfig.lib.json",
+        "assets": ["frontend/libs/commonlib/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "frontend/libs/commonlib/**/*.ts",
+          "frontend/libs/commonlib/package.json"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "frontend/libs/commonlib/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    }
+  },
+  "tags": ["type:lib", "type:js", "type:frontend"]
+}
