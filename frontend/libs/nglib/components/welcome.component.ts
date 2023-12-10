@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { getTodayDate } from '@multi-stack-monorepo/commonlib';
 
 @Component({
   selector: 'nglib-welcome',
@@ -10,5 +11,5 @@ import { CommonModule } from '@angular/common';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class WelcomeComponent {
-  today = new Date();
+  today = getTodayDate();
 }

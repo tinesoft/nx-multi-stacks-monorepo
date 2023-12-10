@@ -1,10 +1,11 @@
+import { getTodayDate } from '@multi-stack-monorepo/commonlib';
 import styles from './welcome.module.scss';
 
 /* eslint-disable-next-line */
 export interface WelcomeProps {}
 
 export function Welcome(props: WelcomeProps) {
-  const today = new Date().toDateString();
+  const today = getTodayDate().toDateString();
   return (
     <div className={styles['welcome']}>
       <h1>Welcome again, from <strong>reactlib!</strong></h1>
