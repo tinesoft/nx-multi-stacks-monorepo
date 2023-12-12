@@ -12,6 +12,7 @@
 
     <modules>
       <module>bootapp</module>
+      <module>bootlib</module>
     </modules>
 
 </project>

@@ -1,0 +1,56 @@
+{
+  "name": "bootlib",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "backend/boot-parent/bootlib/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nxrocks/nx-spring-boot:build",
+      "options": {
+        "root": "backend/boot-parent/bootlib",
+        "runFromParentModule": true
+      },
+      "dependsOn": [
+        "^install"
+      ],
+      "outputs": [
+        "{workspaceRoot}/backend/boot-parent/bootlib/target"
+      ]
+    },
+    "install": {
+      "executor": "@nxrocks/nx-spring-boot:install",
+      "options": {
+        "root": "backend/boot-parent/bootlib",
+        "runFromParentModule": true
+      },
+      "dependsOn": [
+        "^install"
+      ],
+      "outputs": [
+        "{workspaceRoot}/backend/boot-parent/bootlib/target"
+      ]
+    },
+    "test": {
+      "executor": "@nxrocks/nx-spring-boot:test",
+      "options": {
+        "root": "backend/boot-parent/bootlib",
+        "runFromParentModule": true
+      },
+      "outputs": [
+        "{workspaceRoot}/backend/boot-parent/bootlib/target"
+      ]
+    },
+    "clean": {
+      "executor": "@nxrocks/nx-spring-boot:clean",
+      "options": {
+        "root": "backend/boot-parent/bootlib",
+        "runFromParentModule": true
+      }
+    }
+  },
+  "tags": [
+    "type:api",
+    "type:java",
+    "type:backend"
+  ]
+}
