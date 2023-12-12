@@ -26,7 +26,7 @@
     "@nx/web": "17.0.0",
     "@nx/webpack": "17.0.0",
     "@nx/workspace": "17.0.0",
-    "@nxrocks/nx-spring-boot": "^9.1.2",
+    "@nxrocks/nx-spring-boot": "9.2.0",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.7",
     "@schematics/angular": "~16.2.0",
     "@svgr/webpack": "^8.0.1",
@@ -85,3 +85,4 @@
     "zone.js": "~0.13.0"
   }
 }
+
