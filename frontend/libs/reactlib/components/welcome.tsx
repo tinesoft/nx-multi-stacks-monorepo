@@ -1,4 +1,4 @@
-import { getTodayDate } from '@multi-stack-monorepo/commonlib';
+import { getTodayDate } from '@nx-multi-stacks-monorepo/commonlib';
 import styles from './welcome.module.scss';
 
 /* eslint-disable-next-line */

@@ -1,6 +1,6 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { WelcomeComponent } from '@multi-stack-monorepo/nglib';
+import { WelcomeComponent } from '@nx-multi-stacks-monorepo/nglib';
 
 @Component({
   selector: 'ngapp-nx-welcome',

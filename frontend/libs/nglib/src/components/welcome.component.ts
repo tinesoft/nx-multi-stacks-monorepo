@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { getTodayDate } from '@multi-stack-monorepo/commonlib';
+import { getTodayDate } from '@nx-multi-stacks-monorepo/commonlib';
 
 @Component({
   selector: 'nglib-welcome',

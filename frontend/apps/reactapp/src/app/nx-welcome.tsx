@@ -1,4 +1,4 @@
-import { Welcome } from "@multi-stack-monorepo/reactlib";
+import { Welcome } from "@nx-multi-stacks-monorepo/reactlib";
 
 export function NxWelcome({ title }: { title: string }) {
   return (
