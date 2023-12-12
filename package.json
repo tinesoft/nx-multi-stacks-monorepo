@@ -2,7 +2,11 @@
   "name": "@multi-stack-monorepo/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "lint": "nx run-many -t lint --fix --parallel 3",
+    "build": "nx run-many -t build --parallel 3",
+    "test": "nx run-many -t test --parallel 3"
+  },
   "private": true,
   "devDependencies": {
     "@angular-devkit/build-angular": "~16.2.0",
