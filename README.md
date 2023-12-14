@@ -9,7 +9,7 @@
 
 ### General Instructions
 
-1. Create the workspace: `npx --yes create-nx-workspace@17.0.0 nx-multi-stacks-monorepo --stack none --no-nx-cloud`
+1. Create the workspace: `npx --yes create-nx-workspace@17.0.0 nx-multi-stacks-monorepo --preset=apps --workspaceType=integrated --nxCloud=false`
 
 2. Move into the created repo: `cd nx-multi-stacks-monorepo` and open it inside you IDE of choice
 
@@ -51,7 +51,7 @@
 
     </details>
 
-3. Generate a `Welcome` Component inside the `nglib` above: `npx nx g @nx/angular:component --name=welcome --directory=frontend/libs/nglib/components --export=true --standalone=true --changeDetection=OnPush --nameAndDirectoryFormat=as-provided --prefix=nglib`
+3. Generate a `Welcome` Component inside the `nglib` above: `npx nx g @nx/angular:component --name=welcome --directory=frontend/libs/nglib/src/components --export=true --standalone=true --changeDetection=OnPush --nameAndDirectoryFormat=as-provided --prefix=nglib`
 
     <details>
     <summary><b>💾 Save the current state!</b></summary>
@@ -64,7 +64,8 @@
     </details>
 
 4. Update the generated `Welcome` component above and use it in `ngapp` as such:
-    * `frontend/libs/nglib/components/welcome.component.html` :
+    * `frontend/libs/nglib/src/components/welcome.component.html` :
+
     ```diff
     -<p>welcome works!</p>
     +<div class="welcome">
@@ -73,7 +74,8 @@
     +</div>
     ```
 
-    * `frontend/libs/nglib/components/welcome.component.scss` :
+    * `frontend/libs/nglib/src/components/welcome.component.scss` :
+
     ```diff
     +.welcome {
     +    border-radius: 4px;
@@ -84,7 +86,8 @@
     +}
     ```
 
-    * `frontend/libs/nglib/components/welcome.component.ts` :
+    * `frontend/libs/nglib/src/components/welcome.component.ts` :
+
     ```diff
     -export class WelcomeComponent {}
     +export class WelcomeComponent {
@@ -93,6 +96,7 @@
     ```
 
     * `frontend/apps/ngapp/src/app/nx-welcome.component.ts` :
+
     ```diff
     import { Component, ViewEncapsulation } from '@angular/core';
     import { CommonModule } from '@angular/common';
@@ -129,7 +133,8 @@
 ### React Stack Instructions
 
 1. Generate the **react application**: `npx nx g @nx/react:application --name=reactapp --directory=frontend/apps/reactapp --projectNameAndRootFormat=as-provided --routing=true --style=scss --tags="type:app, type:react, type:frontend" --no-interactive`
-    * Open `frontend/apps/reactapp/project.json` and change default port use to serve the app to `2200` (to avoid conflict with other apps)`:
+    * Open `frontend/apps/reactapp/project.json` and change default port use to serve the app to `2200` (to avoid conflict with other apps):
+
     ```diff
     "serve": {
         "executor": "@nx/webpack:dev-server",
@@ -164,7 +169,7 @@
 
     </details>
 
-3. Generate a `Welcome` Component inside the `reactlib` above: `npx nx g @nx/react:component --name=welcome --directory=frontend/libs/reactlib/components --export=true --standalone=true --changeDetection=OnPush --nameAndDirectoryFormat=as-provided --prefix=reactlib`
+3. Generate a `Welcome` Component inside the `reactlib` above: `npx nx g @nx/react:component --name=welcome --directory=frontend/libs/reactlib/src/components --export=true --standalone=true --changeDetection=OnPush --nameAndDirectoryFormat=as-provided --prefix=reactlib`
 
     <details>
     <summary><b>💾 Save the current state!</b></summary>
@@ -177,7 +182,8 @@
     </details>
 
 4. Update the generated `Welcome` component above and use it in `reactapp` as such:
-    * `frontend/libs/reactlib/components/welcome.tsx` :
+    * `frontend/libs/reactlib/src/components/welcome.tsx` :
+
     ```diff
     export interface WelcomeProps {}
     
@@ -194,7 +200,8 @@
     }
     ```
 
-    * `frontend/libs/reactlib/components/welcome.module.scss` :
+    * `frontend/libs/reactlib/src/components/welcome.module.scss` :
+
     ```diff
     -/*
     - * Replace this with your own classes
@@ -213,6 +220,7 @@
     ```
 
     * `frontend/apps/reactapp/src/app/nx-welcome.tsx` :
+
     ```diff
     -/*
     - * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -221,7 +229,7 @@
     - Delete this file and get started with your project!
     - * * * * * * * * * * * * * * * * * * * * * * * * * * * *
     - */
-    +import { Welcome } from "@multi-stack-monorepo/reactlib";
+    +import { Welcome } from "@nx-multi-stacks-monorepo/reactlib";
     +
     export function NxWelcome({ title }: { title: string }) {
     return (
@@ -263,6 +271,7 @@
 
 2. Update the generated `commonlib` file above  (by adding a `getTodayDate()` util) and use it in `nglib` and `reactlib` as such:
     * `frontend/libs/commonlib/src/lib/commonlib.ts` :
+
     ```diff
     export function commonlib(): string {
     return 'commonlib';
@@ -273,7 +282,8 @@
     +}
     ```
 
-    * `frontend/libs/nglib/components/welcome.component.ts` :
+    * `frontend/libs/nglib/src/components/welcome.component.ts` :
+
     ```diff
     import { ChangeDetectionStrategy, Component } from '@angular/core';
     import { CommonModule } from '@angular/common';
@@ -290,7 +300,8 @@
     }
     ```
 
-    * `frontend/libs/reactlib/components/welcome.tsx`:
+    * `frontend/libs/reactlib/src/components/welcome.tsx`:
+
     ```diff
     +import { getTodayDate } from '@nx-multi-stacks-monorepo/commonlib';
     import styles from './welcome.module.scss';
@@ -377,6 +388,7 @@
 
 4. Update the generated `bootapp` application to use the `bootlib` :
     * Open `backend/boot-parent/bootapp/pom.xml` and update it as such (to use the `bootlib` library from above):
+
     ```diff
 		</dependency>
 	+	<dependency>
@@ -388,19 +400,21 @@
     ```
 
     * Open `backend/boot-parent/bootapp/src/main/java/com/example/bootapp/controller/WelcomeController.java` and update it as such (to use the `MyService` from the `bootlib`) :
+
     ```diff
-            package com.example.bootapp.controller;
-
-            import org.springframework.web.bind.annotation.GetMapping;
-            import org.springframework.web.bind.annotation.RequestParam;
-            import org.springframework.web.bind.annotation.RestController;
-    +       import com.example.bootlib.service.MyService;
-
-            
-            private static final String WELCOME_TEMPLATE = "Welcome, %s, from '%s'!";
-            public static record WelcomeMessage(String user, String message) { }
+    package com.example.bootapp.controller;
+    import org.springframework.web.bind.annotation.GetMapping;
+    import org.springframework.web.bind.annotation.RequestParam;
+    import org.springframework.web.bind.annotation.RestController;
+    +import com.example.bootlib.service.MyService;
     
-    +       private final MyService myService;
+    @RestController("/api")
+    public class WelcomeController {
+    @@ -10,8 +11,14 @@ public class WelcomeController {
+            private static final String WELCOME_TEMPLATE = "Welcome, %s, from '%s'!";
+        public static record WelcomeMessage(String user, String message) { }
+    
+    +    private final MyService myService;
     +
     +       public WelcomeController(MyService myService) {
     +               this.myService = myService;
@@ -415,11 +429,13 @@
     ```
 
     * Open `backend/boot-parent/bootapp/src/main/resources/application.properties` and update it as such (to define the property from the `bootlib` library from above):
+
     ```diff
     +bootlib.service.message = bootlib
     ```
 
     * Open `backend/boot-parent/bootapp/src/main/java/com/example/bootapp/BootappApplication.java` and update it as such (to include beans from `com.example` package, common to both `bootapp` and `bootlib`):
+
     ```diff
     -@SpringBootApplication
     +@SpringBootApplication(scanBasePackages = "com.example")

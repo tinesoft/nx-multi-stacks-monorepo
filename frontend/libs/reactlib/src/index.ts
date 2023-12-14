@@ -1,1 +1,1 @@
-export * from './../components/welcome';
+export * from './components/welcome';
