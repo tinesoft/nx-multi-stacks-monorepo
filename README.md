@@ -129,7 +129,7 @@
 ### React Stack Instructions
 
 1. Generate the **react application**: `npx nx g @nx/react:application --name=reactapp --directory=frontend/apps/reactapp --projectNameAndRootFormat=as-provided --routing=true --style=scss --tags="type:app, type:react, type:frontend" --no-interactive`
-    * Open `frontend/apps/react/project.json` and change default port use to serve the app to `2200` (to avoid conflict with other apps)`:
+    * Open `frontend/apps/reactapp/project.json` and change default port use to serve the app to `2200` (to avoid conflict with other apps)`:
     ```diff
     "serve": {
         "executor": "@nx/webpack:dev-server",
@@ -389,6 +389,14 @@
 
     * Open `backend/boot-parent/bootapp/src/main/java/com/example/bootapp/controller/WelcomeController.java` and update it as such (to use the `MyService` from the `bootlib`) :
     ```diff
+            package com.example.bootapp.controller;
+
+            import org.springframework.web.bind.annotation.GetMapping;
+            import org.springframework.web.bind.annotation.RequestParam;
+            import org.springframework.web.bind.annotation.RestController;
+    +       import com.example.bootlib.service.MyService;
+
+            
             private static final String WELCOME_TEMPLATE = "Welcome, %s, from '%s'!";
             public static record WelcomeMessage(String user, String message) { }
     
