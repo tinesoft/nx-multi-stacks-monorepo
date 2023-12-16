@@ -110,7 +110,7 @@
     template: `
         <!--
           * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-    @@ -425,6 +426,7 @@ import { CommonModule } from '@angular/common';
+    import { CommonModule } from '@angular/common';
                 <span> Hello there, </span>
                 Welcome ngapp 👋
             </h1>
@@ -234,7 +234,7 @@
     export function NxWelcome({ title }: { title: string }) {
     return (
         <>
-    @@ -422,7 +417,7 @@ export function NxWelcome({ title }: { title: string }) {
+    export function NxWelcome({ title }: { title: string }) {
                 Welcome {title} 👋
                 </h1>
             </div>
@@ -291,7 +291,7 @@
     
     @Component({
     selector: 'nglib-welcome',
-    @@ -10,5 +11,5 @@ import { CommonModule } from '@angular/common';
+    import { CommonModule } from '@angular/common';
     changeDetection: ChangeDetectionStrategy.OnPush,
     })
     export class WelcomeComponent {
@@ -403,28 +403,29 @@
 
     ```diff
     package com.example.bootapp.controller;
+
     import org.springframework.web.bind.annotation.GetMapping;
     import org.springframework.web.bind.annotation.RequestParam;
     import org.springframework.web.bind.annotation.RestController;
     +import com.example.bootlib.service.MyService;
-    
+
     @RestController("/api")
     public class WelcomeController {
-    @@ -10,8 +11,14 @@ public class WelcomeController {
-            private static final String WELCOME_TEMPLATE = "Welcome, %s, from '%s'!";
+
+        private static final String WELCOME_TEMPLATE = "Welcome, %s, from '%s'!";
         public static record WelcomeMessage(String user, String message) { }
-    
-    +    private final MyService myService;
-    +
-    +       public WelcomeController(MyService myService) {
-    +               this.myService = myService;
-    +       }
-    +
-            @GetMapping("/welcome")
-            public WelcomeMessage welcome(@RequestParam(value = "user", defaultValue = "Sfeir School Nx Attendee") String user) {
-    -               return new WelcomeMessage(user, String.format(WELCOME_TEMPLATE, user, "bootapp"));
-    +               return new WelcomeMessage(user, String.format(WELCOME_TEMPLATE, user, this.myService.message()));
-            }
+
+    +   private final MyService myService;
+
+    +   public WelcomeController(MyService myService) {
+    +       this.myService = myService;
+    +   }
+
+        @GetMapping("/welcome")
+        public WelcomeMessage welcome(@RequestParam(value = "user", defaultValue = "Sfeir School Nx Attendee") String user) {
+    -        return new WelcomeMessage(user, String.format(WELCOME_TEMPLATE, user, "bootapp"));
+    +        return new WelcomeMessage(user, String.format(WELCOME_TEMPLATE, user, this.myService.message()));
+        }
     }
     ```
 
