@@ -19,7 +19,9 @@
         "frontend/libs/commonlib/src/index.ts"
       ],
       "@nx-multi-stacks-monorepo/nglib": ["frontend/libs/nglib/src/index.ts"],
-      "@nx-multi-stacks-monorepo/reactlib": ["frontend/libs/reactlib/src/index.ts"]
+      "@nx-multi-stacks-monorepo/reactlib": [
+        "frontend/libs/reactlib/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]

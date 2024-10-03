@@ -3,6 +3,7 @@
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "backend/boot-parent/bootapp/src",
   "projectType": "application",
+  "tags": [],
   "targets": {
     "build": {
       "executor": "@nxrocks/nx-spring-boot:build",
@@ -10,12 +11,8 @@
         "root": "backend/boot-parent/bootapp",
         "runFromParentModule": true
       },
-      "dependsOn": [
-        "^install"
-      ],
-      "outputs": [
-        "{workspaceRoot}/backend/boot-parent/bootapp/target"
-      ]
+      "dependsOn": ["^install"],
+      "outputs": ["{workspaceRoot}/backend/boot-parent/bootapp/target"]
     },
     "install": {
       "executor": "@nxrocks/nx-spring-boot:install",
@@ -23,12 +20,8 @@
         "root": "backend/boot-parent/bootapp",
         "runFromParentModule": true
       },
-      "dependsOn": [
-        "^install"
-      ],
-      "outputs": [
-        "{workspaceRoot}/backend/boot-parent/bootapp/target"
-      ]
+      "dependsOn": ["^install"],
+      "outputs": ["{workspaceRoot}/backend/boot-parent/bootapp/target"]
     },
     "test": {
       "executor": "@nxrocks/nx-spring-boot:test",
@@ -36,9 +29,7 @@
         "root": "backend/boot-parent/bootapp",
         "runFromParentModule": true
       },
-      "outputs": [
-        "{workspaceRoot}/backend/boot-parent/bootapp/target"
-      ]
+      "outputs": ["{workspaceRoot}/backend/boot-parent/bootapp/target"]
     },
     "clean": {
       "executor": "@nxrocks/nx-spring-boot:clean",
@@ -53,9 +44,7 @@
         "root": "backend/boot-parent/bootapp",
         "runFromParentModule": true
       },
-      "dependsOn": [
-        "^install"
-      ]
+      "dependsOn": ["^install"]
     },
     "serve": {
       "executor": "@nxrocks/nx-spring-boot:serve",
@@ -63,9 +52,7 @@
         "root": "backend/boot-parent/bootapp",
         "runFromParentModule": true
       },
-      "dependsOn": [
-        "^install"
-      ]
+      "dependsOn": ["^install"]
     },
     "build-image": {
       "executor": "@nxrocks/nx-spring-boot:build-image",
@@ -73,9 +60,7 @@
         "root": "backend/boot-parent/bootapp",
         "runFromParentModule": true
       },
-      "outputs": [
-        "{workspaceRoot}/backend/boot-parent/bootapp/target"
-      ]
+      "outputs": ["{workspaceRoot}/backend/boot-parent/bootapp/target"]
     },
     "build-info": {
       "executor": "@nxrocks/nx-spring-boot:build-info",
@@ -84,6 +69,5 @@
         "runFromParentModule": true
       }
     }
-  },
-  "tags": []
+  }
 }

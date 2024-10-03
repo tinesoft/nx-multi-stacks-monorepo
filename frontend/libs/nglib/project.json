@@ -3,8 +3,8 @@
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "frontend/libs/nglib/src",
   "prefix": "nglib",
-  "tags": ["type:lib", "type:angular", "type:frontend"],
   "projectType": "library",
+  "tags": ["type:lib", "type:angular", "type:frontend"],
   "targets": {
     "build": {
       "executor": "@nx/angular:ng-packagr-lite",
@@ -26,26 +26,11 @@
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "frontend/libs/nglib/jest.config.ts",
-        "passWithNoTests": true
-      },
-      "configurations": {
-        "ci": {
-          "ci": true,
-          "codeCoverage": true
-        }
+        "jestConfig": "frontend/libs/nglib/jest.config.ts"
       }
     },
     "lint": {
-      "executor": "@nx/eslint:lint",
-      "outputs": ["{options.outputFile}"],
-      "options": {
-        "lintFilePatterns": [
-          "frontend/libs/nglib/**/*.ts",
-          "frontend/libs/nglib/**/*.html",
-          "frontend/libs/nglib/package.json"
-        ]
-      }
+      "executor": "@nx/eslint:lint"
     }
   }
 }

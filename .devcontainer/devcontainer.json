@@ -48,12 +48,12 @@
 				"anweber.reveal-button"
 			],
 			"settings":{
-				"debug.javascript.autoAttachFilter": "onlyWithFlag",
+				"debug.javascript.autoAttachFilter": "disabled",
 				"dotfiles.repository": "https://github.com/tinesoft/dotfiles"
 			}
 		}
-	}
+	},
 
 	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
-	// "remoteUser": "root"
+	"remoteUser": "root"
 }
